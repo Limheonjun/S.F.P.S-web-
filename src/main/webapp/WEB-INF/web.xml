@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <!-- 처음으로 시작될 페이지 설정 -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 에러페이지 설정 -->
+  <!-- 
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/views/error/error.jsp</location>
+  </error-page>
+  -->
+  
+  <!-- 세션 설정 -->
+  <!-- 
+  <session-config>
+  	<session-timeout>30</session-timeout>
+  </session-config>
+   -->
+   
+  <!-- 페이지 인코딩 필터 설정 -->
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>
@@ -13,13 +31,20 @@
       <param-value>utf-8</param-value>
     </init-param>
   </filter>
+  
+  <!-- 필터가 적용될 url패턴 설정 -->
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+  
+  <!-- 스프링 설정 정보를 읽어들임 -->
+  <!-- 여러개의 Context들을 서로 공유할 수 있도록 만들어줌 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
+  <!-- DispatcherServlet 설정 -->
   <servlet>
     <servlet-name>action</servlet-name>
     <servlet-class>
@@ -32,13 +57,20 @@
 			</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
+
   </servlet>
+  
+  <!-- DispathcerServlet이 적용될 url패턴 설정 -->
   <servlet-mapping>
     <servlet-name>action</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <!-- 사용자가 직접 컨트롤하는 xml파일을 설정 -->
+  <!-- classpath는 src/main/resources를 의미 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:config/spring/context-*.xml</param-value>
   </context-param>
+
 </web-app>
