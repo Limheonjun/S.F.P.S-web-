@@ -24,7 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					top
 				</div>
 				<div id="div_left">
-					left
+					<%@include file="../jsp/map.jsp"%>
 				</div>
 				<div id="div_right">
 					right

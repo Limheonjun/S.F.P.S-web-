@@ -48,6 +48,12 @@ public class SampleController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/map.do")
+	public ModelAndView showMap() throws Exception {
+		ModelAndView mv = new ModelAndView("/map");
+		return mv;
+	}
+	
 	@RequestMapping(value = "/main.do")
 	public ModelAndView showMain() throws Exception {
 		ModelAndView mv = new ModelAndView("/main");
