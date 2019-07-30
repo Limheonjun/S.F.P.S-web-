@@ -8,12 +8,15 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sf.json.JSONArray;
 import sfps.common.common.CommandMap;
 import sfps.sample.service.SampleService;
+import sfps.vo.InstallLocation;
 
 @Controller
 public class SampleController {
@@ -50,13 +53,21 @@ public class SampleController {
 	
 	@RequestMapping(value = "/map.do")
 	public ModelAndView showMap() throws Exception {
+		List<InstallLocation> list = sampleService.selectInstallLocation();
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonText = mapper.writeValueAsString(list);
 		ModelAndView mv = new ModelAndView("/map");
+		mv.addObject("list", jsonText);
 		return mv;
 	}
 	
 	@RequestMapping(value = "/main.do")
 	public ModelAndView showMain() throws Exception {
 		ModelAndView mv = new ModelAndView("/main");
+		List<InstallLocation> list = sampleService.selectInstallLocation();
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonText = mapper.writeValueAsString(list);
+		mv.addObject("list", jsonText);
 		return mv;
 	}
 
