@@ -7,6 +7,8 @@ import org.apache.commons.logging.LogFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import sfps.vo.InstallLocation;
+
 public class AbstractDAO {
 	protected Log log = LogFactory.getLog(AbstractDAO.class);
 	
@@ -55,4 +57,10 @@ public class AbstractDAO {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId,params);
 	}
+	
+	public List<InstallLocation> selectInstallLocation(String queryId) {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
+	}
+	
 }

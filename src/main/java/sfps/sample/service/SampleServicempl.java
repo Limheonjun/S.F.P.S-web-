@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import sfps.sample.dao.SampleDAO;
+import sfps.vo.InstallLocation;
 
 @Service("sampleService")
 public class SampleServicempl implements SampleService {
@@ -23,4 +24,10 @@ public class SampleServicempl implements SampleService {
 		return sampleDAO.selectBoardList(map); 
 	}
 
+	@Override
+	public List<InstallLocation> selectInstallLocation() throws Exception {
+		return sampleDAO.selectLocations();
+	}
+
+	
 }

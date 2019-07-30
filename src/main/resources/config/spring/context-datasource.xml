@@ -7,9 +7,9 @@
     <!-- MySQL 설정 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://35.175.179.186/test"/>
+        <property name="url" value="jdbc:mysql://localhost/sfps"/>
         <property name="username" value="root"/>
-        <property name="password" value="1072"/>
+        <property name="password" value="6017"/>
     </bean>
     
     <!-- 오라클 설정 -->
