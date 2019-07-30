@@ -6,9 +6,9 @@
 
 ## Tech/framework used
 
--   Java
+-   Java v1.8
 -   MYSQL
--  Spring Framework
+-  Spring v4.3.4
 
 ## Change Log
 
@@ -24,6 +24,12 @@
 > **20190728**  changelog :
 > 
 > -   네이버 지도 마커 클러스터링 추가
+
+> **20190730**  changelog :
+> 
+> -   네이버 지도 마커 정보창 추가
+> -   JDK(1.7 -> 1.8) 마이그레이션
+> -   Spring(3.2.4 -> 4.3.4) 마이그레이션
 
 
 
