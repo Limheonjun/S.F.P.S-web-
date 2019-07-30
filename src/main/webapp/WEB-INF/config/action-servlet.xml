@@ -17,18 +17,11 @@
 	<context:property-placeholder properties-ref="config" />
 
 
-	<mvc:annotation-driven>
-		<mvc:argument-resolvers>
-			<bean class="sfps.common.resolver.CustomMapArgumentResolver"></bean>
-		</mvc:argument-resolvers>
-	</mvc:annotation-driven>
-
-
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean id="loggerInterceptor"
-				class="sfps.common.logger.LoggerInterceptor"></bean>
+				class="sfps.logger.LoggerInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
@@ -40,14 +33,11 @@
 		p:order="0" />
 	<bean id="jsonView"
 		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
-
-	<bean
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-		p:order="1"
-		p:viewClass="org.springframework.web.servlet.view.JstlView"
-		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp">
-	</bean>
-
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
 </beans>
 
 

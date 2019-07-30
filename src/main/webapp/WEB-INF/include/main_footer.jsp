@@ -6,5 +6,5 @@
       Smart Fire Prevention Service
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Lim Heon Jun</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="#">Lim Heon Jun</a>.</strong> All rights reserved.
   </footer>
