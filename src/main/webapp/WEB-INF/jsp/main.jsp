@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					
 				</div>
 				<div id="div_right">
-					real-time
+					<jsp:include page="../jsp/status.jsp" flush="false" />
 				</div>
 			</div>
 		</div>

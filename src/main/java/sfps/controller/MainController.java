@@ -1,9 +1,7 @@
 package sfps.controller;
 
-import java.util.Iterator;  
+  
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
@@ -11,17 +9,15 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import net.sf.json.JSONArray;
 import sfps.service.MainService;
 import sfps.vo.InstallLocation;
 
 @Controller
 public class MainController {
 	Logger log = Logger.getLogger(this.getClass());
-
+	
 	@Resource(name = "MainService")
 	private MainService mainService;
 	
@@ -44,6 +40,13 @@ public class MainController {
 		mv.addObject("list", jsonText);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/status.do")
+	public ModelAndView chat() {
+		ModelAndView mv = new ModelAndView("/status");	
+		return mv;
+	}
+
 
 
 }
