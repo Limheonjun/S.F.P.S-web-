@@ -13,7 +13,6 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=<spring:eval expression="@config.getProperty('clientkey')" />"></script>
-<script type="text/javascript" src="../../js/accidentdeath.js"></script>
 <script type="text/javascript" src="../../js/MarkerClustering.js"></script>
 <style type="text/css">
 html, body {

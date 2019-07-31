@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns="http://java.sun.com/xml/ns/javaee" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+		version="3.0">
   <!-- 처음으로 시작될 페이지 설정 -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -54,10 +57,10 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>
 				/WEB-INF/config/*-servlet.xml
-			</param-value>
+		</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
-
+    <async-supported>true</async-supported>
   </servlet>
   
   <!-- DispathcerServlet이 적용될 url패턴 설정 -->
