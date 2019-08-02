@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <!--
@@ -20,20 +20,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<!-- left_column -->
 		<%@include file="../include/left_column.jsp"%>
 
-		<div class="content-wrapper" style="border: 1px solid red;">
-			<div id="div_parent">
-				<div id="div_top">
-					top
-				</div>
-				<div id="div_left">
-					<jsp:include page="../jsp/map.jsp" flush="false" >
-   						<jsp:param name="list" value="${list}"/>
-					</jsp:include>
-					
-				</div>
-				<div id="div_right">
-					<jsp:include page="../jsp/status.jsp" flush="false" />
-				</div>
+		<div class="content-wrapper">
+			<div id="div_top">top</div>
+			<div id="div_contents">
+				<jsp:include page="../jsp/contents.jsp" flush="false" />
 			</div>
 		</div>
 

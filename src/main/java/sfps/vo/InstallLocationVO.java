@@ -1,6 +1,6 @@
 package sfps.vo;
 
-public class InstallLocation {
+public class InstallLocationVO {
 	String location;
 	String lat;
 	String lng;

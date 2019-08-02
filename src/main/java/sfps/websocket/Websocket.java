@@ -1,4 +1,4 @@
-package sfps.vo;
+package sfps.websocket;
 
 import java.util.ArrayList;
 

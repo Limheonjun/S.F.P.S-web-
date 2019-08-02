@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="sfps">
+
+<select id="selectInstallLocation" resultType="sfps.vo.InstallLocationVO">
+	select * from InstallLocation;
+</select>
+
+<select id="selectSensorData" resultType="sfps.vo.SensorDataVO">
+	select * from SensorData;
+</select>
+
+<select id="selectSensorCheck" resultType="sfps.vo.SensorCheckVO">
+	select * from SensorCheck;
+</select>
+
+<select id="selectTensorflowCheck" resultType="sfps.vo.TensorflowCheckVO">
+	select * from TensorflowCheck;
+</select>
+
+<select id="selectTelecomCheck" resultType="sfps.vo.TelecomCheckVO">
+	select * from TelecomCheck;
+</select>
+
+<select id="selectSensorDetectionCheck" resultType="sfps.vo.SensorDetectionCheckVO">
+	select * from SensorDetectionCheck;
+</select>
+
+</mapper>

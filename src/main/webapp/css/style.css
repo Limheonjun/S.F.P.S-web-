@@ -1,29 +1,68 @@
 @charset "UTF-8";
 
-#div_parent{
-	height: 900px;
+.tabmenu {
+	position: relative;
+	width: 400px;
+	height: 200px;
+	font-family: dotum, "", verdana;
+	line-height: 17px;
+	font-size: 12px;
+	color: #555;
+}
+
+.tabmenu img {
+	border: none;
+	vertical-align: top;
+}
+
+.tabmenu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	margin-top: 15px;
+}
+
+.tabmenu ul li {
+	float: left
+}
+
+.tabmenu .tabcontent {
+	display: none;
+	width: 240px;
+	height: 125px;
+	position: absolute;
+	left: 0px;
+	top: 60px
+}
+
+.tabmenu .morebtn {
+	position: absolute;
+	right: 0;
+	top: 30px;
+}
+
+#div_contents {
+	height: 765px;
 	width: 100%;
+	border: 2px solid blac;
 }
 
 #div_top {
 	width: 100%;
-	height: 15%;
-	border: 1px solid black;
+	height: 135px;
+	border: 2px solid black;
 }
 
-#div_right{	
+#div_right {
 	float: left;
-	border: 1px solid black;
-	height: 85%;
+	height: 100%;
 	width: 30%;
+	border: 2px solid black;
 }
 
-#div_left{
+#div_left {
 	float: left;
-	border: 1px solid black;
-	height: 85%;
+	height: 100%;
 	width: 70%;
+	border: 2px solid black;
 }
-
-
-

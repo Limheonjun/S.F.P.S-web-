@@ -22,21 +22,18 @@
         <li class="header">메뉴</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>실시간 현황</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>로그</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">센싱 로그</a></li>
-            <li><a href="#">통신 로그</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>개발자</span></a></li>
-        
+        <li id="log"><a href="#"><i class="fa fa-link"></i> <span>로그</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
   </aside>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+	    $("#log").click(function(){
+	    	window.open("http://localhost:7647/log.do", "네이버새창", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+	    });
+	});
+
+  </script>

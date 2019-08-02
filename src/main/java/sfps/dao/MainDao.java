@@ -6,7 +6,13 @@ import org.apache.commons.logging.LogFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import sfps.vo.InstallLocation;
+
+import sfps.vo.InstallLocationVO;
+import sfps.vo.SensorCheckVO;
+import sfps.vo.SensorDataVO;
+import sfps.vo.SensorDetectionCheckVO;
+import sfps.vo.TelecomCheckVO;
+import sfps.vo.TensorflowCheckVO;
 
 
 @Repository("MainDao")
@@ -22,9 +28,34 @@ public class MainDao{
 		}
 	}
 
-	public List<InstallLocation> selectInstallLocation()throws Exception {
-		//printQueryId(queryId);
-		return sqlSession.selectList("location.selectInstallLocation");
+	public List<InstallLocationVO> selectInstallLocation(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList("sfps.selectInstallLocation");
+	}
+	
+	public List<SensorDataVO> selectSensorData(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
+	}
+	
+	public List<SensorCheckVO> selectSensorCheck(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
+	}
+	
+	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
+	}
+	
+	public List<TelecomCheckVO> selectTelecomCheck(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
+	}
+	
+	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId);
 	}
 
 }
