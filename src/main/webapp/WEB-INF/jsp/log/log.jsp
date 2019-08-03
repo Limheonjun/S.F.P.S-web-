@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link rel="stylesheet" type="text/css" href="css/tab.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <title>로그</title>
 </head>

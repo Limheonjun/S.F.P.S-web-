@@ -7,7 +7,11 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,7 +34,7 @@ public class MainController {
 		List<InstallLocationVO> list = mainService.selectInstallLocation("sfps.selectInstallLocation");
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonText = mapper.writeValueAsString(list);
-		ModelAndView mv = new ModelAndView("/map");
+		ModelAndView mv = new ModelAndView("/right/top/map");
 		mv.addObject("list", jsonText);
 		return mv;
 	}
@@ -47,24 +51,14 @@ public class MainController {
 	
 	@RequestMapping(value = "/status.do")
 	public ModelAndView chat() {
-		ModelAndView mv = new ModelAndView("/status");	
-		return mv;
-	}
-	
-	@RequestMapping(value = "/contents.do")
-	public ModelAndView loadContents() throws Exception {
-		ModelAndView mv = new ModelAndView("/contents");
-		List<InstallLocationVO> list = mainService.selectInstallLocation("sfps.selectInstallLocation");
-		ObjectMapper mapper = new ObjectMapper();
-		String jsonText = mapper.writeValueAsString(list);
-		mv.addObject("list", jsonText);
+		ModelAndView mv = new ModelAndView("/left/status");	
 		return mv;
 	}
 	
 	
 	@RequestMapping(value = "/log.do")
 	public ModelAndView loadLog() throws Exception {
-		ModelAndView mv = new ModelAndView("/log");	
+		ModelAndView mv = new ModelAndView("/log/log");	
 		List<SensorDataVO> list = mainService.selectSensorData("sfps.selectSensorData");
 		mv.addObject("list", list);
 		return mv;
@@ -72,7 +66,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/sensor_log.do")
 	public ModelAndView loadSensor() throws Exception {
-		ModelAndView mv = new ModelAndView("/sensor_log");	
+		ModelAndView mv = new ModelAndView("/log/sensor_log");	
 		List<SensorDataVO> list = mainService.selectSensorData("sfps.selectSensorData");
 		mv.addObject("list", list);
 		return mv;
@@ -80,7 +74,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/telecom_log.do")
 	public ModelAndView loadTelecom() throws Exception {
-		ModelAndView mv = new ModelAndView("/telecom_log");	
+		ModelAndView mv = new ModelAndView("/log/telecom_log");	
 		List<TelecomCheckVO> list = mainService.selectTelecomCheck("sfps.selectTelecomCheck");
 		mv.addObject("list", list);
 		return mv;
@@ -88,7 +82,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/tensorflow_log.do")
 	public ModelAndView loadTensorflow() throws Exception {
-		ModelAndView mv = new ModelAndView("/tensorflow_log");	
+		ModelAndView mv = new ModelAndView("/log/tensorflow_log");	
 		List<TensorflowCheckVO> list = mainService.selectTensorflowCheck("sfps.selectTensorflowCheck");
 		mv.addObject("list", list);
 		return mv;
@@ -96,12 +90,10 @@ public class MainController {
 	
 	@RequestMapping(value = "/sensordetection_log.do")
 	public ModelAndView loadSensorDetection() throws Exception {
-		ModelAndView mv = new ModelAndView("/sensordetection_log");	
+		ModelAndView mv = new ModelAndView("/log/sensordetection_log");	
 		List<SensorDetectionCheckVO> list = mainService.selectSensorDetectionCheck("sfps.selectSensorDetectionCheck");
 		mv.addObject("list", list);
 		return mv;
 	}
-
-
-
+	
 }

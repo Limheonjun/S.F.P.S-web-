@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+#div_top {
+	width: 100%;
+	height: 15%;
+	border: 2px solid black;
+}
+
+#div_bottom {
+	width: 100%;
+	height: 85%;
+	border: 2px solid black;
+}
+
+#div_right {
+	float: left;
+	height: 870px;
+	width: 70%;
+	border: 2px solid black;
+}
+
+#div_left {
+	float: left;
+	height: 870px;
+	width: 30%;
+	border: 2px solid black;
+}
