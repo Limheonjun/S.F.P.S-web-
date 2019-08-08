@@ -26,4 +26,16 @@
 	select * from SensorDetectionCheck;
 </select>
 
+<insert id="insertSensorData" parameterType="sfps.vo.SensorDataVO">
+	insert into SensorData values(#{location}, #{temperature}, #{smoke}, #{flame}, #{flame_number}, #{date});
+</insert>
+
+<insert id="insertSensorDetectionCheck" parameterType="sfps.vo.SensorDetectionCheckVO">
+	insert into SensorDetectionCheck values(#{location}, #{result}, #{filepath}, #{date});
+</insert>
+
+<insert id="insertTensorflowCheckCheck" parameterType="sfps.vo.TensorflowCheckVO">
+	insert into TensorflowCheck values(#{location}, #{result}, #{inferencetime}, #{date});
+</insert>
+
 </mapper>

@@ -2,6 +2,7 @@ package sfps.controller;
 
   
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -94,6 +95,24 @@ public class MainController {
 		List<SensorDetectionCheckVO> list = mainService.selectSensorDetectionCheck("sfps.selectSensorDetectionCheck");
 		mv.addObject("list", list);
 		return mv;
+	}
+	
+	@RequestMapping(value = "/sensordata.do", method=RequestMethod.POST)
+	@ResponseBody
+	public void insertSensorData(SensorDataVO vo) throws Exception {
+		mainService.insertSensorData("sfps.insertSensorData", vo);
+	}
+	
+	@RequestMapping(value = "/sensordectioncheck.do", method=RequestMethod.POST)
+	@ResponseBody
+	public void insertSensorDetectionCheckData(SensorDetectionCheckVO vo) throws Exception {
+		mainService.insertSensorDetectionCheck("sfps.insertSensorDetectionCheck", vo);
+	}
+	
+	@RequestMapping(value = "/tensorflowcheck.do", method=RequestMethod.POST)
+	@ResponseBody
+	public void insertTensorflowCheckData(TensorflowCheckVO vo) throws Exception {
+		mainService.insertTensorflowCheck("sfps.insertTensorflowCheck", vo);
 	}
 	
 }

@@ -46,6 +46,18 @@ public class MainService{
 	public List<SensorCheckVO> selectSensorCheck(String queryId) throws Exception {
 		return mainDao.selectSensorCheck(queryId);
 	}
+	
+	public void insertSensorData(String queryId, SensorDataVO vo) throws Exception{
+		mainDao.insertSensorData(queryId, vo);
+	}
+	
+	public void insertSensorDetectionCheck(String queryId, SensorDetectionCheckVO vo) throws Exception{
+		mainDao.insertSensorDetectionCheck(queryId, vo);
+	}
+	
+	public void insertTensorflowCheck(String queryId, TensorflowCheckVO vo) throws Exception{
+		mainDao.insertTensorflowCheck(queryId, vo);
+	}
 
 	
 }

@@ -57,5 +57,20 @@ public class MainDao{
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId);
 	}
+	
+	public void insertSensorData(String queryId, SensorDataVO vo) throws Exception{
+		printQueryId(queryId);
+		sqlSession.insert(queryId, vo);
+	}
+	
+	public void insertSensorDetectionCheck(String queryId, SensorDetectionCheckVO vo) throws Exception{
+		printQueryId(queryId);
+		sqlSession.insert(queryId, vo);
+	}
+	
+	public void insertTensorflowCheck(String queryId, TensorflowCheckVO vo) throws Exception{
+		printQueryId(queryId);
+		sqlSession.insert(queryId, vo);
+	}
 
 }

@@ -2,6 +2,7 @@ package sfps.websocket;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -9,8 +10,15 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/websocket")
+import sfps.service.MainService;
+import sfps.vo.SensorDataVO;
+
+
+@ServerEndpoint(value = "/websocket")
 public class Websocket {
+	
+	@Inject
+    private MainService mainService;
 
     /**
      * 웹소켓 세션을 담는 ArrayList
@@ -30,22 +38,24 @@ public class Websocket {
             sessionList.add(session);
             
             // 웹소켓 연결 성립되어 있는 모든 사용자에게 메시지 전송
-            sendMessageToAll("***** [USER-" + sessionId + "] is connected. *****");
+            //sendMessageToAll("***** [USER-" + sessionId + "] is connected. *****");
         }
     }
     
 
     /**
      * 웹소켓 메시지(From Client) 수신하는 경우 호출
+     * @throws Exception 
      */
     @OnMessage
-    public String handleMessage(String message, Session session) {
+    public String handleMessage(String message, Session session) throws Exception {    	
         if (session != null) {
             String sessionId = session.getId();
             System.out.println("message is arrived. sessionId == [" + sessionId + "] / message == [" + message + "]");
 
             // 웹소켓 연결 성립되어 있는 모든 사용자에게 메시지 전송
-            sendMessageToAll("[USER-" + sessionId + "] " + message);
+            //sendMessageToAll("[USER-" + sessionId + "] " + message);
+            sendMessageToAll(message);
         }
 
         return null;
@@ -62,7 +72,7 @@ public class Websocket {
             System.out.println("client is disconnected. sessionId == [" + sessionId + "]");
             
             // 웹소켓 연결 성립되어 있는 모든 사용자에게 메시지 전송
-            sendMessageToAll("***** [USER-" + sessionId + "] is disconnected. *****");
+            //sendMessageToAll("***** [USER-" + sessionId + "] is disconnected. *****");
         }
     }
 

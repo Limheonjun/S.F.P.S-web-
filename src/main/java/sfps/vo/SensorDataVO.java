@@ -7,6 +7,18 @@ public class SensorDataVO {
 	int flame;
 	String flame_number;
 	String date;
+	
+	public SensorDataVO() {}
+	
+	public SensorDataVO(SensorDataVO vo) {
+		this.location = vo.location;
+		this.temperature = vo.temperature;
+		this.smoke = vo.smoke;
+		this.flame = vo.flame;
+		this.flame_number = vo.flame_number;
+		this.date = vo.date;
+	}
+	
 	public String getLocation() {
 		return location;
 	}
