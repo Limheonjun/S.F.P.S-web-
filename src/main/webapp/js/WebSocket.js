@@ -41,6 +41,7 @@ function addLineToChatBox(_line) {
 	}
 	var json = JSON.parse(_line);
 	var data = json.data;
+	console.log(JSON.stringify(data));
 	var chatBoxArea = document.getElementsByClassName("chatBoxArea");
 	if (json.id == '1') {
 		// 센서 데이터

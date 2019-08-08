@@ -34,7 +34,7 @@
 	insert into SensorDetectionCheck values(#{location}, #{result}, #{filepath}, #{date});
 </insert>
 
-<insert id="insertTensorflowCheckCheck" parameterType="sfps.vo.TensorflowCheckVO">
+<insert id="insertTensorflowCheck" parameterType="sfps.vo.TensorflowCheckVO">
 	insert into TensorflowCheck values(#{location}, #{result}, #{inferencetime}, #{date});
 </insert>
 
