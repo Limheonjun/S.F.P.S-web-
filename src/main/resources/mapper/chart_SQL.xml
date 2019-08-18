@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="chart">
+
+<select id="selectSensorDataByPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT DATE_FORMAT(DATE(date), "%Y-%m-%d") AS date, count(*) as count FROM sensordata WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') GROUP BY date;]]>
+</select>
+
+<select id="selectSensorDetectionCheckByPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT DATE_FORMAT(DATE(date), "%Y-%m-%d") AS date, count(*) as count FROM sensordetectioncheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') GROUP BY date;]]>
+</select>
+
+<select id="selectTensorflowCheckByPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT DATE_FORMAT(DATE(date), "%Y-%m-%d") AS date, count(*) as count FROM tensorflowcheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') GROUP BY date;]]>
+</select>
+
+<select id="selectTelecomCheckByPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT DATE_FORMAT(DATE(date), "%Y-%m-%d") AS date, count(*) as count FROM telecomcheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') GROUP BY date;]]>
+</select>
+
+
+</mapper>

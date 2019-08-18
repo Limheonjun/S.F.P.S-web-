@@ -235,6 +235,13 @@
 			<version>2.9.8</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+
 		<!-- MultipartHttpServletRequset -->
 		<dependency>
 			<groupId>commons-io</groupId>

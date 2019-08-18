@@ -1,6 +1,6 @@
 var g_webSocket = null;
 window.onload = function() {
-	g_webSocket = new WebSocket("ws://localhost:7647/websocket");
+	g_webSocket = new WebSocket("ws://58.127.197.205:7647/websocket");
 
 	/**
 	 * 웹소켓 사용자 연결 성립하는 경우 호출

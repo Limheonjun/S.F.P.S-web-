@@ -17,6 +17,7 @@
 	<util:properties id="config" location="classpath:properties/key.properties" />
 	<context:property-placeholder properties-ref="config" />
 
+	<mvc:annotation-driven />
 
 	<mvc:interceptors>
 		<mvc:interceptor>

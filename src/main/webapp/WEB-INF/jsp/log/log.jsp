@@ -11,6 +11,9 @@
 </head>
 <body>
 	<div id="container">
+		<div id = "chart">
+			<jsp:include page="chart.jsp" flush="false" />
+		</div>
 		<h2>Filter</h2>
 		<ul class="tab">
 			<li id="tab1" class="current" data-tab="tab1"><a href="#">센서

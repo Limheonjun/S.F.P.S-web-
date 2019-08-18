@@ -6,13 +6,7 @@
 <title>웹소켓 테스트 페이지2</title>
 </head>
 <body>
-	<input class="inputMsgBox" style="width: 250px;" type="text"
-		onkeypress="inputMsgBox_onkeypress()">
-	<input class="sendButton" value="Send" type="button"
-		onclick="sendButton_onclick()">
-	<input class="disconnectButton" value="Disconnect" type="button"
-		onclick="disconnectButton_onclick()">
-	<br />
+	<h4>센서 오탐 여부</h4>
 	<textarea class="chatBoxArea" style="width: 100%;" rows="5" cols="50"
 		readonly="readonly"></textarea>
 </body>
