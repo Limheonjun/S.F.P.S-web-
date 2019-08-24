@@ -7,6 +7,7 @@ public class SensorDataVO {
 	int flame;
 	String flame_number;
 	String date;
+	String time;
 	
 	public SensorDataVO() {}
 	
@@ -55,6 +56,14 @@ public class SensorDataVO {
 	}
 	public void setSmoke(int smoke) {
 		this.smoke = smoke;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 	
 	

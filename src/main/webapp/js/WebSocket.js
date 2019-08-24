@@ -43,13 +43,14 @@ function addLineToChatBox(_line) {
 	var data = json.data;
 	console.log(JSON.stringify(data));
 	var chatBoxArea = document.getElementsByClassName("chatBoxArea");
-	if (json.id == '1') {
+	if (json.id == '0') {
 		// 센서 데이터
 		$.ajax({
 			type : "POST",
 			url : "/sensordata.do",
-			data : data,
+			data : JSON.stringify(data),
 			dataType : "json",
+			contentType : "application/json; charset=UTF-8",
 			success : function(xml) {
 				console.log("success");
 			},
@@ -61,7 +62,7 @@ function addLineToChatBox(_line) {
 				+ " 온도 : " + data.temperature + " 불꽃 : " + data.flame
 				+ " 연기 : " + data.smoke + "\n";
 		chatBoxArea[0].scrollTop = chatBoxArea[0].scrollHeight;
-	} else if (json.id == '2') {
+	} else if (json.id == '1') {
 		// 오탐 데이터
 		$.ajax({
 			type : "POST",
@@ -78,7 +79,7 @@ function addLineToChatBox(_line) {
 		chatBoxArea[1].value = "시간 : " + data.date + " 위치 : " + data.location
 				+ " 결과 : " + data.result + " url : " + data.filepath + "\n";
 		chatBoxArea[1].scrollTop = chatBoxArea[1].scrollHeight;
-	} else if (json.id == '3') {
+	} else if (json.id == '2') {
 		// 텐서플로우 데이터
 		$.ajax({
 			type : "POST",

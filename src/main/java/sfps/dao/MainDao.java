@@ -33,31 +33,6 @@ public class MainDao{
 		return sqlSession.selectList("sfps.selectInstallLocation");
 	}
 	
-	public List<SensorDataVO> selectSensorData(String queryId)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
-	}
-	
-	public List<SensorCheckVO> selectSensorCheck(String queryId)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
-	}
-	
-	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
-	}
-	
-	public List<TelecomCheckVO> selectTelecomCheck(String queryId)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
-	}
-	
-	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
-	}
-	
 	public void insertSensorData(String queryId, SensorDataVO vo) throws Exception{
 		printQueryId(queryId);
 		sqlSession.insert(queryId, vo);

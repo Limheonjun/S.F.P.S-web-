@@ -5,6 +5,8 @@ public class TensorflowCheckVO {
 	String result;
 	float inferencetime;
 	String date;
+	String time;
+	
 	public String getLocation() {
 		return location;
 	}
@@ -29,6 +31,13 @@ public class TensorflowCheckVO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 	
 	
 }

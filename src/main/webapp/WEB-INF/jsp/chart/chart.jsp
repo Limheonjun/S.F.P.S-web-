@@ -26,8 +26,8 @@ img.ui-datepicker-trigger {
 <body>
 	<select id="list">
 		<option value="">통계선택</option>
-		<option value="SensorData">센서통계</option>
-		<option value="SensorDetectionCheck">오탐통계</option>
+		<option value="/chart.do">센서통계</option>
+		<option value="/test.do">오탐통계</option>
 		<option value="TensorflowCheck">텐서플로우통계</option>
 		<option value="TelecomCheck">통신통계</option>
 	</select>
@@ -56,73 +56,74 @@ img.ui-datepicker-trigger {
 						};
 						$.ajax({
 							type : "POST",
-							url : "/chart.do",
+							url :  $("#list option:checked").val(),
 							data : JSON.stringify(data),
 							dataType : "json",
 							contentType : "application/json; charset=UTF-8",
 							success : function(json) {
 								var labels = [];
-								var data = [];
+								var datas = [];
 								for(var i=0; i<json.length; i++){
-									console.log(json[i].date);
-									labels.push(json[i].date);
-									data.push(json[i].count);
+									labels.push(json[i].value);
+									datas.push(json[i].count);
 								}
-								var ctx = document.getElementById('myChart').getContext('2d');
-								var config = {
-										type : 'bar',
-										data : {
-											labels : labels,
-											datasets : [ {
-												label : $("#list option:checked").text(),
-												data : data,
-												backgroundColor : [
-														'rgba(255, 99, 132, 0.2)',
-														'rgba(54, 162, 235, 0.2)',
-														'rgba(255, 206, 86, 0.2)',
-														'rgba(75, 192, 192, 0.2)',
-														'rgba(153, 102, 255, 0.2)',
-														'rgba(255, 159, 64, 0.2)' ],
-												borderColor : [
-														'rgba(255, 99, 132, 1)',
-														'rgba(54, 162, 235, 1)',
-														'rgba(255, 206, 86, 1)',
-														'rgba(75, 192, 192, 1)',
-														'rgba(153, 102, 255, 1)',
-														'rgba(255, 159, 64, 1)' ],
-												borderWidth : 1
-											} ]
-										},
-										options : {
-											maintainAspectRatio : false,
-											layout : {
-												padding : {
-													left : 50,
-													right : 0,
-													top : 0,
-													bottom : 0
-												}
-											},
-											scales : {
-												yAxes : [ {
-													ticks : {
-														beginAtZero : true
-													}
-												} ]
-											}
-										}
-										
-									};
+								console.log("datas : "+JSON.stringify(datas));
+								console.log("labels : "+labels);
+								console.log(JSON.stringify(json))
 								
 								if(!myChart){
+									var ctx = document.getElementById('myChart').getContext('2d');
+									var config = {
+											type : 'bar',
+											data : {
+												labels : labels,
+												datasets : [ {
+													label : $("#list option:checked").text(),
+													data : datas,
+													backgroundColor : [
+															'rgba(255, 99, 132, 0.2)',
+															'rgba(54, 162, 235, 0.2)',
+															'rgba(255, 206, 86, 0.2)',
+															'rgba(75, 192, 192, 0.2)',
+															'rgba(153, 102, 255, 0.2)',
+															'rgba(255, 159, 64, 0.2)' ],
+													borderColor : [
+															'rgba(255, 99, 132, 1)',
+															'rgba(54, 162, 235, 1)',
+															'rgba(255, 206, 86, 1)',
+															'rgba(75, 192, 192, 1)',
+															'rgba(153, 102, 255, 1)',
+															'rgba(255, 159, 64, 1)' ],
+													borderWidth : 1
+												} ]
+											},
+											options : {
+												maintainAspectRatio : false,
+												layout : {
+													padding : {
+														left : 50,
+														right : 0,
+														top : 0,
+														bottom : 0
+													}
+												},
+												scales : {
+													yAxes : [ {
+														ticks : {
+															beginAtZero : true
+														}
+													} ]
+												}
+											}
+											
+										};
 									myChart = new Chart(ctx, config);
-									console.log("1");
 								} else {
+									console.log("1");
 									myChart.config.data.datasets[0].label = $("#list option:checked").text();
 									myChart.config.data.labels = labels;
-									myChart.config.data.datasets[0].data = data;
+									myChart.config.data.datasets[0].data = datas;
 									myChart.update();
-									console.log("2");
 								}
 							},
 							error : function(xhr, status, error) {

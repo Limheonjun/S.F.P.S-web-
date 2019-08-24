@@ -26,27 +26,7 @@ public class MainService{
 	public List<InstallLocationVO> selectInstallLocation(String queryId) throws Exception {
 		return mainDao.selectInstallLocation(queryId);
 	}
-	
-	public List<SensorDataVO> selectSensorData(String queryId) throws Exception {
-		return mainDao.selectSensorData(queryId);
-	}
-	
-	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId) throws Exception {
-		return mainDao.selectSensorDetectionCheck(queryId);
-	}
-	
-	public List<TelecomCheckVO> selectTelecomCheck(String queryId) throws Exception {
-		return mainDao.selectTelecomCheck(queryId);
-	}
-	
-	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId) throws Exception {
-		return mainDao.selectTensorflowCheck(queryId);
-	}
-	
-	public List<SensorCheckVO> selectSensorCheck(String queryId) throws Exception {
-		return mainDao.selectSensorCheck(queryId);
-	}
-	
+		
 	public void insertSensorData(String queryId, SensorDataVO vo) throws Exception{
 		mainDao.insertSensorData(queryId, vo);
 	}

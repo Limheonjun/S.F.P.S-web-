@@ -23,6 +23,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>실시간 현황</span></a></li>
         <li id="log"><a href="#"><i class="fa fa-link"></i> <span>로그</span></a></li>
+        <li id="chart"><a href="#"><i class="fa fa-link"></i> <span>통계</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -33,6 +34,10 @@
   $(document).ready(function(){
 	    $("#log").click(function(){
 	    	window.open("http://localhost:7647/log.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+	    });
+	    
+	    $("#chart").click(function(){
+	    	window.open("http://localhost:7647/chart.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
 	    });
 	});
 

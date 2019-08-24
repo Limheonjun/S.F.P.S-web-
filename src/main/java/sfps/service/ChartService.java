@@ -23,15 +23,4 @@ Logger log = Logger.getLogger(this.getClass());
 		return chartDao.selectSensorDataByPeriod(queryId, map);
 	}
 	
-	public List<HashMap> selectSensorDetectionCheckByPeriod(String queryId, HashMap<String, Object> map) throws Exception {
-		return chartDao.selectSensorDataByPeriod(queryId, map);
-	}
-	
-	public List<HashMap> selectTensorflowCheckByPeriod(String queryId, HashMap<String, Object> map) throws Exception {
-		return chartDao.selectSensorDataByPeriod(queryId, map);
-	}
-	
-	public List<HashMap> selectTelecomCheckByPeriod(String queryId, HashMap<String, Object> map) throws Exception {
-		return chartDao.selectSensorDataByPeriod(queryId, map);
-	}
 }

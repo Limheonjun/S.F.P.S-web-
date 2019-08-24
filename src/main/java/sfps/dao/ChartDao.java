@@ -29,19 +29,4 @@ public class ChartDao {
 		return sqlSession.selectList(queryId, map);
 	}
 	
-	public List<HashMap> selectSensorDetectionCheckByPeriod(String queryId, HashMap<String, Object> map)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId, map);
-	}
-	
-	public List<HashMap> selectTensorflowCheckByPeriod(String queryId, HashMap<String, Object> map)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId, map);
-	}
-	
-	public List<HashMap> selectTelecomCheckByPeriod(String queryId, HashMap<String, Object> map)throws Exception {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId, map);
-	}
-
 }

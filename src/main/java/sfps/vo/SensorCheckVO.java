@@ -4,6 +4,8 @@ public class SensorCheckVO {
 	String location;
 	String result;
 	String date;
+	String time;
+	
 	public String getLocation() {
 		return location;
 	}
@@ -22,4 +24,12 @@ public class SensorCheckVO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
+	
 }

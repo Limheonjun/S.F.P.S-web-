@@ -23,48 +23,32 @@ import sfps.vo.TensorflowCheckVO;
 
 @Controller
 public class ChartController {
-Logger log = Logger.getLogger(this.getClass());
+	Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource(name = "ChartService")
 	private ChartService chartService;
 	
-	
-//	@RequestMapping(value = "/test.do")
-//	@ResponseBody
-//	public String test() throws Exception {
-//		List<HashMap> list = chartService.selectSensorDataByDay("chart.selectSensorDataByDay");
-//		System.out.println(list);
-//		ObjectMapper mapper = new ObjectMapper();
-//		String jsonText = mapper.writeValueAsString(list);
-//		return jsonText;
-//	}
+	@RequestMapping(value = "/chart.do", method=RequestMethod.GET)
+	public ModelAndView openChart() throws Exception {
+		ModelAndView mv = new ModelAndView("/chart/chart");
+		return mv;
+	}
 	
 	@RequestMapping(value = "/chart.do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<HashMap> getSensorData(@RequestBody HashMap<String, Object> map) throws Exception {
-		List<HashMap> list = chartService.selectSensorDataByPeriod("chart.select"+map.get("table")+"ByPeriod", map);
+	public List<HashMap> getChartData(@RequestBody HashMap<String, Object> map) throws Exception {
+		System.out.println("map : "+map);
+		List<HashMap> list = chartService.selectSensorDataByPeriod("chart.selectSensorDataByDay", map);
+		System.out.println("list : " + list);
 		return list;
 	}
 	
-//	@RequestMapping(value = "/sensordetectioncheckchart.do", method=RequestMethod.POST)
-//	@ResponseBody
-//	public List<HashMap> getSensorDetectionCheck(@RequestBody HashMap<String, Object> map) throws Exception {
-//		List<HashMap> list = chartService.selectSensorDetectionCheckByPeriod("chart.selectSensorDetectionCheckByPeriod", map);
-//		return list;
-//	}
-//	
-//	@RequestMapping(value = "/tensorflowcheckchart.do", method=RequestMethod.POST)
-//	@ResponseBody
-//	public List<HashMap> getTensorflowCheck(@RequestBody HashMap<String, Object> map) throws Exception {
-//		List<HashMap> list = chartService.selectTensorflowCheckByPeriod("chart.selectTensorflowCheckByPeriod", map);
-//		return list;
-//	}
-//	
-//	@RequestMapping(value = "/telecomcheckchart.do", method=RequestMethod.POST)
-//	@ResponseBody
-//	public List<HashMap> getTelecomCheck(@RequestBody HashMap<String, Object> map) throws Exception {
-//		List<HashMap> list = chartService.selectTelecomCheckByPeriod("chart.selectTelecomCheckByPeriod", map);
-//		return list;
-//	}
-
+	@RequestMapping(value = "/test.do", method=RequestMethod.POST)
+	@ResponseBody
+	public List<HashMap> getDonut(@RequestBody HashMap<String, Object> map) throws Exception {
+		System.out.println("map : "+map);
+		List<HashMap> list = chartService.selectSensorDataByPeriod("chart.selectSensorDetectionCheck", map);
+		System.out.println("list : " + list);
+		return list;
+	}
 }

@@ -4,6 +4,7 @@ public class TelecomCheckVO {
 	String location;
 	String result;
 	String date;
+	String time;
 	
 	public String getLocation() {
 		return location;
@@ -23,4 +24,11 @@ public class TelecomCheckVO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 }

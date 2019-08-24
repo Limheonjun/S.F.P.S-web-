@@ -29,8 +29,10 @@
 				<jsp:include page="left/status2.jsp" flush="false" />
 				<jsp:include page="left/status3.jsp" flush="false" />
 				<jsp:include page="left/status4.jsp" flush="false" />
+				<!--  
 				<jsp:include page="left/status5.jsp" flush="false" />
 				<jsp:include page="left/status6.jsp" flush="false" />
+				-->
 			</div>
 		</div>
 		<!-- main_footer -->

@@ -5,6 +5,8 @@ public class SensorDetectionCheckVO {
 	String result;
 	String filepath;
 	String date;
+	String time;
+	
 	public String getLocation() {
 		return location;
 	}
@@ -29,5 +31,12 @@ public class SensorDetectionCheckVO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 	
 }
