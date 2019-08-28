@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="log">
+
+<select id="selectSensorData" parameterType="java.util.HashMap" resultType="sfps.vo.SensorDataVO">
+	<![CDATA[select * from SensorData WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
+			<if test="location != null">
+	        	AND Location = #{location}
+	    	</if>
+	<![CDATA[order by date desc, time desc]]>
+</select>
+
+<select id="selectSensorDataTest" resultType="sfps.vo.SensorDataVO">
+	select * from SensorData limit #{startList}, #{endList};
+</select>
+
+<select id="getListCount" resultType="int">
+	SELECT count(*) as listCnt FROM SensorData;
+</select>
+
+
+<select id="selectSensorCheck" parameterType="java.util.HashMap" resultType="sfps.vo.SensorCheckVO">
+	<![CDATA[select * from SensorCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
+				<if test="location != null">
+	        	AND Location = #{location}
+	    	</if>
+	<![CDATA[order by date desc, time desc]]>
+</select>
+
+<select id="selectTensorflowCheck" parameterType="java.util.HashMap" resultType="sfps.vo.TensorflowCheckVO">
+	<![CDATA[select * from TensorflowCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
+			<if test="location != null">
+	        	AND Location = #{location}
+	    	</if>
+	    	<if test="result != null">
+	        	AND result = #{result}
+	    	</if>
+	<![CDATA[order by date desc, time desc]]>
+</select>
+
+<select id="selectTelecomCheck" parameterType="java.util.HashMap" resultType="sfps.vo.TelecomCheckVO">
+	<![CDATA[select * from TelecomCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
+			<if test="location != null">
+	        	AND Location = #{location}
+	    	</if>
+	    	<if test="result != null">
+	        	AND result = #{result}
+	    	</if>
+	<![CDATA[order by date desc, time desc]]>
+</select>
+
+<select id="selectSensorDetectionCheck" parameterType="java.util.HashMap" resultType="sfps.vo.SensorDetectionCheckVO">
+	<![CDATA[select * from SensorDetectionCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
+			<if test="location != null">
+	        	AND Location = #{location}
+	    	</if>
+	    	<if test="result != null">
+	        	AND result = #{result}
+	    	</if>
+	<![CDATA[order by date desc, time desc]]>
+</select>
+</mapper>

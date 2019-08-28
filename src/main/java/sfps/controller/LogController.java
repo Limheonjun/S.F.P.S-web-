@@ -36,7 +36,7 @@ public class LogController {
 	@ResponseBody
 	public List<SensorDataVO> loadSensor(@RequestBody HashMap<String, Object> map) throws Exception {	
 		if(map.get("location") == "") map.put("location", null);
-		List<SensorDataVO> list = logService.selectSensorData("sfps.selectSensorData", map);
+		List<SensorDataVO> list = logService.selectSensorData("log.selectSensorData", map);
 		return list;
 	}
 	
@@ -45,7 +45,7 @@ public class LogController {
 	public List<TelecomCheckVO> loadTelecom(@RequestBody HashMap<String, Object> map) throws Exception {
 		if(map.get("location") == "") map.put("location", null);
 		if(map.get("result") == "") map.put("result", null);
-		List<TelecomCheckVO> list = logService.selectTelecomCheck("sfps.selectTelecomCheck", map);
+		List<TelecomCheckVO> list = logService.selectTelecomCheck("log.selectTelecomCheck", map);
 		return list;
 	}
 	
@@ -54,7 +54,7 @@ public class LogController {
 	public List<TensorflowCheckVO> loadTensorflow(@RequestBody HashMap<String, Object> map) throws Exception {
 		if(map.get("location") == "") map.put("location", null);
 		if(map.get("result") == "") map.put("result", null);
-		List<TensorflowCheckVO> list = logService.selectTensorflowCheck("sfps.selectTensorflowCheck", map);
+		List<TensorflowCheckVO> list = logService.selectTensorflowCheck("log.selectTensorflowCheck", map);
 		return list;
 	}
 	
@@ -64,7 +64,7 @@ public class LogController {
 		System.out.println(map);
 		if(map.get("location") == "") map.put("location", null);
 		if(map.get("result") == "") map.put("result", null);
-		List<SensorDetectionCheckVO> list = logService.selectSensorDetectionCheck("sfps.selectSensorDetectionCheck", map);
+		List<SensorDetectionCheckVO> list = logService.selectSensorDetectionCheck("log.selectSensorDetectionCheck", map);
 		return list;
 	}
 }
