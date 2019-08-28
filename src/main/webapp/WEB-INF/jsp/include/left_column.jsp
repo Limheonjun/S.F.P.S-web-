@@ -33,11 +33,11 @@
   <script type="text/javascript">
   $(document).ready(function(){
 	    $("#log").click(function(){
-	    	window.open("http://localhost:7647/log.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+	    	window.open("http://58.127.197.205:7647/log.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
 	    });
 	    
 	    $("#chart").click(function(){
-	    	window.open("http://localhost:7647/chart.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+	    	window.open("http://58.127.197.205:7647/chart.do", "네이버새창", "width=900, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
 	    });
 	});
 

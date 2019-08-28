@@ -22,6 +22,10 @@
 	<![CDATA[select result as value, count(*) as conut from sensordetectioncheck WHERE DATE(date) >= STR_TO_DATE(#{startDAte}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') AND location ='우리' group by result]]>
 </select>
 
+<select id="selectDataCount" parameterType="java.util.HashMap" resultType="int">
+	<![CDATA[select count(*) as count from sensordata]]>
+</select>
+
 
 
 

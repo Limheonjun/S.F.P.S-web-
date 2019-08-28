@@ -1,5 +1,6 @@
 package sfps.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -27,28 +28,33 @@ public class LogDao {
 		}
 	}
 	
-	public List<SensorDataVO> selectSensorData(String queryId)throws Exception {
+	public List<SensorDataVO> selectSensorData(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
+		return sqlSession.selectList(queryId, map);
 	}
 	
-	public List<SensorCheckVO> selectSensorCheck(String queryId)throws Exception {
+	public List<SensorCheckVO> selectSensorCheck(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
+		return sqlSession.selectList(queryId, map);
 	}
 	
-	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId)throws Exception {
+	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
+		return sqlSession.selectList(queryId, map);
 	}
 	
-	public List<TelecomCheckVO> selectTelecomCheck(String queryId)throws Exception {
+	public List<TelecomCheckVO> selectTelecomCheck(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
+		return sqlSession.selectList(queryId, map);
 	}
 	
-	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId)throws Exception {
+	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
-		return sqlSession.selectList(queryId);
+		return sqlSession.selectList(queryId, map);
+	}
+	
+	public int getListCount(String queryId)throws Exception {
+		printQueryId(queryId);
+		return sqlSession.selectOne(queryId);
 	}
 }

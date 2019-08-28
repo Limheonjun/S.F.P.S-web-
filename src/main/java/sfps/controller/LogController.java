@@ -1,12 +1,15 @@
 package sfps.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import sfps.service.LogService;
@@ -25,42 +28,43 @@ public class LogController {
 	
 	@RequestMapping(value = "/log.do")
 	public ModelAndView loadLog() throws Exception {
-		System.out.println("test");
 		ModelAndView mv = new ModelAndView("/log/log");	
-		List<SensorDataVO> list = logService.selectSensorData("sfps.selectSensorData");
-		mv.addObject("list", list);
 		return mv;
 	}
 	
-	@RequestMapping(value = "/sensor_log.do")
-	public ModelAndView loadSensor() throws Exception {
-		ModelAndView mv = new ModelAndView("/log/sensor_log");	
-		List<SensorDataVO> list = logService.selectSensorData("sfps.selectSensorData");
-		mv.addObject("list", list);
-		return mv;
+	@RequestMapping(value = "/sensorLog.do")
+	@ResponseBody
+	public List<SensorDataVO> loadSensor(@RequestBody HashMap<String, Object> map) throws Exception {	
+		if(map.get("location") == "") map.put("location", null);
+		List<SensorDataVO> list = logService.selectSensorData("sfps.selectSensorData", map);
+		return list;
 	}
 	
-	@RequestMapping(value = "/telecom_log.do")
-	public ModelAndView loadTelecom() throws Exception {
-		ModelAndView mv = new ModelAndView("/log/telecom_log");	
-		List<TelecomCheckVO> list = logService.selectTelecomCheck("sfps.selectTelecomCheck");
-		mv.addObject("list", list);
-		return mv;
+	@RequestMapping(value = "/telecomLog.do")
+	@ResponseBody
+	public List<TelecomCheckVO> loadTelecom(@RequestBody HashMap<String, Object> map) throws Exception {
+		if(map.get("location") == "") map.put("location", null);
+		if(map.get("result") == "") map.put("result", null);
+		List<TelecomCheckVO> list = logService.selectTelecomCheck("sfps.selectTelecomCheck", map);
+		return list;
 	}
 	
-	@RequestMapping(value = "/tensorflow_log.do")
-	public ModelAndView loadTensorflow() throws Exception {
-		ModelAndView mv = new ModelAndView("/log/tensorflow_log");	
-		List<TensorflowCheckVO> list = logService.selectTensorflowCheck("sfps.selectTensorflowCheck");
-		mv.addObject("list", list);
-		return mv;
+	@RequestMapping(value = "/tensorflowLog.do")
+	@ResponseBody
+	public List<TensorflowCheckVO> loadTensorflow(@RequestBody HashMap<String, Object> map) throws Exception {
+		if(map.get("location") == "") map.put("location", null);
+		if(map.get("result") == "") map.put("result", null);
+		List<TensorflowCheckVO> list = logService.selectTensorflowCheck("sfps.selectTensorflowCheck", map);
+		return list;
 	}
 	
-	@RequestMapping(value = "/sensordetection_log.do")
-	public ModelAndView loadSensorDetection() throws Exception {
-		ModelAndView mv = new ModelAndView("/log/sensordetection_log");	
-		List<SensorDetectionCheckVO> list = logService.selectSensorDetectionCheck("sfps.selectSensorDetectionCheck");
-		mv.addObject("list", list);
-		return mv;
+	@RequestMapping(value = "/sensordetectionLog.do")
+	@ResponseBody
+	public List<SensorDetectionCheckVO> loadSensorDetection(@RequestBody HashMap<String, Object> map) throws Exception {
+		System.out.println(map);
+		if(map.get("location") == "") map.put("location", null);
+		if(map.get("result") == "") map.put("result", null);
+		List<SensorDetectionCheckVO> list = logService.selectSensorDetectionCheck("sfps.selectSensorDetectionCheck", map);
+		return list;
 	}
 }

@@ -177,7 +177,7 @@ img.ui-datepicker-trigger {
 									$("#fromDate").datepicker("option",
 											"maxDate", selectedDate);
 								}
-							});
+					});
 					
 				});
 		

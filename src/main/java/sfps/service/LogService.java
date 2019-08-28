@@ -1,5 +1,6 @@
 package sfps.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,24 +25,27 @@ public class LogService{
 	private LogDao logDao; 
 	
 
-	public List<SensorDataVO> selectSensorData(String queryId) throws Exception {
-		return logDao.selectSensorData(queryId);
+	public List<SensorDataVO> selectSensorData(String queryId, HashMap<String, Object> map) throws Exception {
+		return logDao.selectSensorData(queryId, map);
 	}
 	
-	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId) throws Exception {
-		return logDao.selectSensorDetectionCheck(queryId);
+	public List<SensorDetectionCheckVO> selectSensorDetectionCheck(String queryId, HashMap<String, Object> map) throws Exception {
+		return logDao.selectSensorDetectionCheck(queryId, map);
 	}
 	
-	public List<TelecomCheckVO> selectTelecomCheck(String queryId) throws Exception {
-		return logDao.selectTelecomCheck(queryId);
+	public List<TelecomCheckVO> selectTelecomCheck(String queryId, HashMap<String, Object> map) throws Exception {
+		return logDao.selectTelecomCheck(queryId, map);
 	}
 	
-	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId) throws Exception {
-		return logDao.selectTensorflowCheck(queryId);
+	public List<TensorflowCheckVO> selectTensorflowCheck(String queryId, HashMap<String, Object> map) throws Exception {
+		return logDao.selectTensorflowCheck(queryId, map);
 	}
 	
-	public List<SensorCheckVO> selectSensorCheck(String queryId) throws Exception {
-		return logDao.selectSensorCheck(queryId);
+	public List<SensorCheckVO> selectSensorCheck(String queryId, HashMap<String, Object> map) throws Exception {
+		return logDao.selectSensorCheck(queryId, map);
 	}
 	
+	public int getListCount(String queryId)throws Exception {
+		return logDao.getListCount(queryId);
+	}
 }
