@@ -26,8 +26,8 @@ html, body {
 <body>
 	<div id="map" style="width: 100%; height: 100%; padding: 0; margin: 0;"></div>
 	<script>
+		//console.log("param.map : "+'${param.list}'+" // map : "+'${map}'+" // param : "+'${param}');
 		var list = JSON.parse('${param.list}');
-		console.log(list);
 		var map = new naver.maps.Map("map", {
 			zoom : 3,
 			center : new naver.maps.LatLng(36.2253017, 127.6460516),
@@ -98,16 +98,20 @@ html, body {
 		for (var i=0; i<markers.length; i++) {
 	        naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
 	    }
+		
+		//map.setCenter(new naver.maps.LatLng(37.5612890, 126.9226480));
+        //map.setZoom(11)
 	    
 	    function getClickHandler(seq) {
 	        return function(e) {
+	        	
 	            var marker = markers[seq],
 	                infoWindow = infowindows[seq];
 
 	            if (infowindow.getMap()) {
 	                infowindow.close();
 	            } else {
-	                infowindow.open(map, marker);
+	                infoWindow.open(map, marker);
 	            }
 	        }
 	    }

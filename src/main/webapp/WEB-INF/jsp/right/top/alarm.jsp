@@ -5,9 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/alarm.css">
 <title>알람</title>
 </head>
 <body>
-	<h1>Start</h1>
+	<div class="alarm_container">
+			
+	</div>
 </body>
+<script type="text/javascript">
+
+</script>
 </html>

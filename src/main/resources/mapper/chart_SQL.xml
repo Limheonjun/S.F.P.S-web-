@@ -2,28 +2,57 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="chart">
 
-<select id="selectSensorDataByDay" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-	<![CDATA[select location as value, count(*) as count from sensorData WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') group by location;]]>
+<select id="selectSensorData" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT COUNT(IF(temperature >= 30, temperature, null)) as temperature, COUNT(IF(flame >= 150, flame, null)) as flame, COUNT(IF(smoke >= 650, smoke, null)) as smoke FROM sensordata]]>
+	<if test="date != null and location != null">
+	        WHERE date like #{date} AND location = #{location}
+	</if>
+	<if test="date != null and location == null">
+	        WHERE date like #{date}
+	</if>
+	<if test="date == null and location != null">
+	        WHERE location = #{location}
+	</if>
+	
 </select>
 
 <select id="selectSensorDetectionCheck" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-	<![CDATA[select result as value, count(*) as count from sensordetectioncheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') group by result]]>
+	<![CDATA[SELECT COUNT(IF(result = 'Y', result, null)) as Y, COUNT(IF(result = 'N', result, null)) as N FROM sensordetectioncheck]]>
+	<if test="date != null and location != null">
+	        WHERE date like #{date} AND location = #{location}
+	</if>
+		<if test="date != null and location == null">
+	        WHERE date like #{date}
+	</if>
+	<if test="date == null and location != null">
+	        WHERE location = #{location}
+	</if>
 </select>
 
-<select id="selectSensorDetectionCheckByLocation" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-	<![CDATA[select result as value, count(*) as conut from sensordetectioncheck where location = #{location} group by result]]>
+<select id="selectTensorflowCheck" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT COUNT(IF(result = 'Y', result, null)) as Y, COUNT(IF(result = 'N', result, null)) as N, AVG(IF(inferencetime > 0, inferencetime, null)) as '평균 추론시간' FROM tensorflowcheck]]>
+	<if test="date != null and location != null">
+	        WHERE date like #{date} AND location = #{location}
+	</if>
+		<if test="date != null and location == null">
+	        WHERE date like #{date}
+	</if>
+	<if test="date == null and location != null">
+	        WHERE location = #{location}
+	</if>
 </select>
 
-<select id="selectSensorDetectionCheckByPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-	<![CDATA[select result as value, count(*) as conut from sensordetectioncheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')  group by result]]>
-</select>
-
-<select id="selectSensorDetectionCheckByLocationPeriod" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-	<![CDATA[select result as value, count(*) as conut from sensordetectioncheck WHERE DATE(date) >= STR_TO_DATE(#{startDAte}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d') AND location ='우리' group by result]]>
-</select>
-
-<select id="selectDataCount" parameterType="java.util.HashMap" resultType="int">
-	<![CDATA[select count(*) as count from sensordata]]>
+<select id="selectTelecomCheck" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<![CDATA[SELECT COUNT(IF(result = 'Y', result, null)) as Y, COUNT(IF(result = 'N', result, null)) as N FROM sensordetectioncheck]]>
+	<if test="date != null and location != null">
+	        WHERE date like #{date} AND location = #{location}
+	</if>
+		<if test="date != null and location == null">
+	        WHERE date like #{date}
+	</if>
+	<if test="date == null and location != null">
+	        WHERE location = #{location}
+	</if>
 </select>
 
 

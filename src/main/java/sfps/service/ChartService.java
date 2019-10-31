@@ -19,8 +19,8 @@ Logger log = Logger.getLogger(this.getClass());
 	@Resource(name="ChartDao") 
 	private ChartDao chartDao; 
 	
-	public List<HashMap> selectSensorDataByPeriod(String queryId, HashMap<String, Object> map) throws Exception {
-		return chartDao.selectSensorDataByPeriod(queryId, map);
+	public List<HashMap> selectSensorData(String queryId, HashMap<String, Object> map) throws Exception {
+		return chartDao.selectSensorData(queryId, map);
 	}
 	
 }

@@ -24,7 +24,7 @@ public class ChartDao {
 		}
 	}
 	
-	public List<HashMap> selectSensorDataByPeriod(String queryId, HashMap<String, Object> map)throws Exception {
+	public List<HashMap> selectSensorData(String queryId, HashMap<String, Object> map)throws Exception {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, map);
 	}

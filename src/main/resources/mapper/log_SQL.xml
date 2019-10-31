@@ -10,23 +10,6 @@
 	<![CDATA[order by date desc, time desc]]>
 </select>
 
-<select id="selectSensorDataTest" resultType="sfps.vo.SensorDataVO">
-	select * from SensorData limit #{startList}, #{endList};
-</select>
-
-<select id="getListCount" resultType="int">
-	SELECT count(*) as listCnt FROM SensorData;
-</select>
-
-
-<select id="selectSensorCheck" parameterType="java.util.HashMap" resultType="sfps.vo.SensorCheckVO">
-	<![CDATA[select * from SensorCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
-				<if test="location != null">
-	        	AND Location = #{location}
-	    	</if>
-	<![CDATA[order by date desc, time desc]]>
-</select>
-
 <select id="selectTensorflowCheck" parameterType="java.util.HashMap" resultType="sfps.vo.TensorflowCheckVO">
 	<![CDATA[select * from TensorflowCheck WHERE DATE(date) >= STR_TO_DATE(#{startDate}, '%Y-%m-%d') AND DATE(date) <= STR_TO_DATE(#{endDate}, '%Y-%m-%d')]]>
 			<if test="location != null">
